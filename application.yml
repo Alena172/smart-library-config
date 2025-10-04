@@ -1,0 +1,31 @@
+spring:
+  jackson:
+    date-format: com.smartlibrary.config.CustomDateFormatter
+    time-zone: Europe/Moscow
+
+logging:
+  level:
+    com.smartlibrary: DEBUG
+    org.springframework.cloud: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 90
+  client:
+    healthcheck:
+      enabled: true
+    register-with-eureka: true
+    fetch-registry: true
